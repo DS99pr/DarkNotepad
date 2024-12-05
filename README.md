@@ -1,2 +1,2 @@
 # DarkNotepad
-dark notepad - created in flet (python)
+**dark notepad - created in library named flet**
