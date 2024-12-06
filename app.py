@@ -2,8 +2,10 @@
 
 import flet as ft
 import subprocess as sp
+from psutil import WINDOWS
 
 def main(page: ft.Page):
+  if WINDOWS: 
    def save(self):
       try: 
        path = path_to_save.value
@@ -29,10 +31,12 @@ def main(page: ft.Page):
    br = ft.Container(height=30)
    save_button = ft.ElevatedButton(icon=ft.Icons.SAVE, on_click=save, text="save")
    path_to_save = ft.TextField(label="path to save", hint_text=f"C:/Users/{sp.getoutput('echo %USERNAME%')}/...", width=200)
-   load_button = ft.ElevatedButton(icon=ft.Icons.RECEIPT_LONG, on_click=load, text="load")
+   load_button = ft.ElevatedButton(icon=ft.Icons.BOLT, on_click=load, text="load")
    path_to_load = ft.TextField(label="path to load", hint_text=f"C:/Users/{sp.getoutput('echo %USERNAME%')}/...", width=200)
    page.title = "notepad"
    page.theme_mode = ft.ThemeMode.DARK
    page.add(input_field, br, save_button, path_to_save, br, load_button, path_to_load)
+  else:
+   print("you can't run this notepad, because it's only for windows.")
 
 ft.app(main)
