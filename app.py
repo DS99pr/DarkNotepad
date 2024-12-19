@@ -1,3 +1,4 @@
+# punctuactionReplacer Copyright (c) 2024, Pard. All rights reserved.
 # only for windows
 
 import flet as ft
